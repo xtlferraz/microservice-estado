@@ -1,4 +1,4 @@
-const formidable = require('./node_modules/formidable');
+const formidable = require('formidable');
 var fs = require('fs');
 const API = ({ getStateOperation, getAllStateOperation, createStateOperation , updateStateOperation , deleteStateOperation }) => ({
   getState: async (req, res) => {

@@ -1,5 +1,5 @@
-const bodyParser = require('./node_modules/body-parser')
-const { createController } = require('./node_modules/awilix-express') // or `awilix-router-core`
+const bodyParser = require('body-parser')
+const { createController } = require('awilix-express') // or `awilix-router-core`
 const CityController = require('../presentations/state/Controllers/CityController')
 
 module.exports = createController(CityController)
