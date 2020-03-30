@@ -33,14 +33,19 @@ module.exports = {
   },
 
   production: {
-    client: 'sqlite3',
+    client: 'postgresql',
     connection: {
-      filename: './src/infra/database/sqlite/db.sqlite3'
+      database: 'ec2-23-22-156-110.compute-1.amazonaws.com',
+      user:     'zonfaemufusuum',
+      password: '836cb320b31e68ce07da92bcea611f590a91e5c0a33bb5be16bd40e017878c43'
     },
-    migrations:{
-      directory:'./src/infra/database/migrations'
+    pool: {
+      min: 2,
+      max: 10
     },
-    useNullAsDefault:true
+    migrations: {
+      tableName: 'knex_migrations'
+    }
   }
 
 };
