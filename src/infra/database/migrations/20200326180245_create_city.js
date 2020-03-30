@@ -4,7 +4,7 @@ exports.up = function(knex) {
         table.increments();
         table.string('name').notNullable();
         table.string('population_quantity').notNullable();
-        table.string('state_id').notNullable();
+        table.integer('state_id').notNullable();
         table.foreign('state_id').references('id').inTable('state');
         table.unique(['state_id', 'name']);
     });
