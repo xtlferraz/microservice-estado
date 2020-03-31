@@ -8,6 +8,7 @@ module.exports = ({connection}) => ({
         const result = await connection
         .raw(`select s.*, (select sum(population_quantity) as population from city where city.state_id = s.id) as population from state as s`);
         const obj = result || [];
+        console.log(obj);
         const list = obj.map( result => 
             stateMapper.toEntity(result));
         return list;
