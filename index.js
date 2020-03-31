@@ -29,6 +29,9 @@ container.register({
   }
 );
 
+
+app.use(cors());
+app.options('*', cors()); 
 app.use(scopePerRequest(container));
 app.use(loadControllers('src/interfaces/http/routes/*.js', { cwd: __dirname }));
 app.use(express.json());
@@ -44,9 +47,6 @@ app.use((error, req, res, next) => {
     stack: error.stack
   })
 });
-
-
-app.use(cors());
 
 const porta = process.env.PORT || 3000;
 app.listen(porta);
