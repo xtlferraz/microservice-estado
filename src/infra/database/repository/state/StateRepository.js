@@ -7,7 +7,8 @@ module.exports = ({connection}) => ({
     all : async() => {
         const result = await connection
         .raw(`select s.*, (select sum(population_quantity) as population from city where city.state_id = s.id) as population from state as s`);
-        const list =result.map( result => 
+        const obj = result || [];
+        const list = obj.map( result => 
             stateMapper.toEntity(result));
         return list;
     },
