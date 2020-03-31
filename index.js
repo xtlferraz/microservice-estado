@@ -6,6 +6,7 @@ const createError = require('http-errors');
 const axios = require('axios');
 const connection = require('./src/infra/database/connection/DatabaseConnection');
 const factoryStateDomainService = require('./src/domain/services/state/FactoryStateDomainService');
+const cors = require('cors');
 const container = createContainer()
 container.register({
   createError: asValue(createError),
@@ -44,6 +45,8 @@ app.use((error, req, res, next) => {
   })
 });
 
+
+app.use(cors());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
