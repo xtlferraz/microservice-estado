@@ -1,5 +1,5 @@
 const formidable = require('formidable');
-var fs = require('fs');
+const fs = require('fs');
 const API = ({ getStateOperation, getAllStateOperation, createStateOperation , updateStateOperation , deleteStateOperation }) => ({
   getState: async (req, res) => {
     const state = await getStateOperation.execute(req.params.id);
